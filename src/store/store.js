@@ -4,6 +4,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexORM from "@vuex-orm/core";
 import VuexORMAxios from "@vuex-orm/plugin-axios";
+import websocket from "./modules/websocket";
 
 Vue.use(Vuex);
 
@@ -26,8 +27,8 @@ VuexORM.use(VuexORMAxios, {
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  modules: {
+    websocket
+  },
   plugins: [VuexORM.install(database)]
 });
