@@ -9,8 +9,18 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: viewImporter("Home")
+      name: "Modules",
+      component: viewImporter("Modules")
+    },
+    {
+      path: "/modules",
+      name: "modules",
+      component: viewImporter("Modules")
+    },
+    {
+      path: "/control",
+      name: "control",
+      component: viewImporter("Control")
     }
   ]
 });
