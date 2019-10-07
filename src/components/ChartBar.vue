@@ -34,12 +34,15 @@ export default {
   },
   watch: {
     message(message) {
-      if (message.command && message.command === "data") {
-        this.chart.labels.shift();
-        this.chart.labels.push(message.label);
-        this.chart.datasets[0].data.shift();
-        this.chart.datasets[0].data.push(message.data);
-        this.renderChart(this.chart, this.options);
+      const { module, data } = message.value;
+      if (module && data) {
+        this.chart.labels.push(module);
+        this.chart.datasets[0].data.push(data.train.route);
+        if (this.chart.labels.length > 20) {
+          this.chart.labels.shift();
+          this.chart.datasets[0].data.shift();
+        }
+        this.$data._chart.update();
       }
     }
   },
