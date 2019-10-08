@@ -7,7 +7,7 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import ChartBar from "@/components/ChartBar.vue";
+import ChartBar from "@/components/Charts/ChartBar.vue";
 import { BButton } from "bootstrap-vue";
 
 export default {
@@ -20,7 +20,7 @@ export default {
     ...mapState("websocket", ["message", "connected"])
   },
   mounted() {
-    this.connect({ server: "ws://127.0.0.1:3000/ws", timeout: 1000 });
+    // this.connect({ server: "ws://127.0.0.1:3000/ws", timeout: 1000 });
   },
   methods: {
     ...mapActions("websocket", ["sendMessage", "connect"]),
