@@ -9,15 +9,17 @@ const testData = {
 
 const colors = generateColor();
 
-export const datasets = count => {
-  const array = [...new Array(count)].map(() => {
+export const datasets = (numberOfDatasets, numberOfDataInSet) => {
+  const array = [...new Array(numberOfDatasets)].map(() => {
     return { ...testData };
   });
   array.forEach((ds, index) => {
     const color = colors.next();
-    ds.label = `#label-${index}`;
-    ds.data = [...new Array(10)].map((_, index) => index);
-    ds.backgroundColor = [...new Array(10)].map(() => color.value);
+    ds.label = `#debug-dataset-${index}`;
+    ds.data = [...new Array(numberOfDataInSet)].map(
+      () => Math.floor(Math.random() * 3) + 3
+    );
+    ds.backgroundColor = color.value;
   });
 
   return array;

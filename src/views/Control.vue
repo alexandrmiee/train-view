@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-button block @click="startTest" :disabled="!connected">Старт</b-button>
-    <chart-bar style="position: relative; height:40vh; width:80vw" />
+    <b-button @click="startTest" :disabled="!connected">Старт</b-button>
+    <chart-bar class="chart-bar" />
   </div>
 </template>
 
@@ -31,4 +31,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss"></style>
